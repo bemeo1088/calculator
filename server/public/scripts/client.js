@@ -6,7 +6,6 @@ function readyNow() {
     $('#subtractBtn').on('click', subtractClicked);
     $('#multiplyBtn').on('click', multiplyClicked);
     $('#divideBtn').on('click', divideClicked);
-    //getRecords();   // modify this getRecords function later when user click on each button
     $('#clearBtn').on('click', clearClicked);
 }
 
