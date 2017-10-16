@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+  color: rgba(150, 17, 90, 0.865);
+}
+h3 {
+  text-align: left;
+  font-size: 24px;
+}
+
+.container{
+width: 1160px;
+height: 610px;
+margin:70px auto;
+padding-left: 50px;
+font-family: 'Droid Serif', serif;
+position:relative;
+background: linear-gradient(#22abe9 5%, #36caf0 70%);
+}
+

@@ -6,13 +6,12 @@ function readyNow() {
     $('#subtractBtn').on('click', subtractClicked);
     $('#multiplyBtn').on('click', multiplyClicked);
     $('#divideBtn').on('click', divideClicked);
-    getRecords();
+    //getRecords();   // modify this getRecords function later when user click on each button
     $('#clearBtn').on('click', clearClicked);
 }
 
 function addClicked(x, y) {
-    console.log('x value', $('#x').val());
-    console.log('y value', $('#y').val());
+
     var recordNumber = {
         x: $('#x').val(),
         y: $('#y').val(),
@@ -25,102 +24,39 @@ function addClicked(x, y) {
         data: recordNumber
     })
     .done(function(response){
-        var recordToCalculate = response;
-        appendToDom(recordToCalculate);
-        console.log(response);
-        
+        //var recordToCalculate = response;
+        getRecords();
     })
     .fail(function(message){
         console.log('Error', message);
-        
     })
-}
-function getRecords() {
-    $.ajax ({
-        method: 'GET',
-        url: '/records'
-    })
-    .done(function (response) {
-        var recordCollection = response;
-        appendToDom(recordCollection);
-    })
+} // end add button function
 
-function appendToDom(result) {
-    $('#result').text(result);
-}    
-
-
-
-}
+//begin subtraction button function
 function subtractClicked(x, y) {
-    console.log('x value', $('#x').val());
-    console.log('y value', $('#y').val());
+
     var recordNumber = {
         x: $('#x').val(),
         y: $('#y').val(),
         type: "Subtract"
     }
-    
+
     $.ajax({
         method: 'POST',
         url: '/records',
         data: recordNumber
     })
         .done(function (response) {
-            console.log(response);
-
+            getRecords();
         })
         .fail(function (message) {
             console.log('Error', message);
-
         })
-}
-function getRecords() {
-    $.ajax({
-        method: 'GET',
-        url: '/records'
-    })
-        .done(function (response) {
-            var recordCollection = response;
-        })
+} // end subtract function
 
-}
-function multiplyClicked(x, y) {
-    console.log('x value', $('#x').val());
-    console.log('y value', $('#y').val());
-    var recordNumber = {
-        x: $('#x').val(),
-        y: $('#y').val(),
-        type: "Multiply"
-    }
-    
-    $.ajax({
-        method: 'POST',
-        url: '/records',
-        data: recordNumber
-    })
-        .done(function (response) {
-            console.log(response);
-
-        })
-        .fail(function (message) {
-            console.log('Error', message);
-
-        })
-}
-function getRecords() {
-    $.ajax({
-        method: 'GET',
-        url: '/records'
-    })
-        .done(function (response) {
-            var recordCollection = response;
-        })
-
-}
+// begin division button function
 function divideClicked(x, y) {
-    console.log('x value', $('#x').val());
-    console.log('y value', $('#y').val());
+
     var recordNumber = {
         x: $('#x').val(),
         y: $('#y').val(),
@@ -133,8 +69,29 @@ function divideClicked(x, y) {
         data: recordNumber
     })
         .done(function (response) {
-            console.log(response);
+            getRecords ();
+        })
+        .fail(function (message) {
+            console.log('Error', message);
+        })
+} // end divide function
 
+//begin multiplication function
+function multiplyClicked(x, y) {
+    console.log('x value', $('#x').val());
+    console.log('y value', $('#y').val());
+    var recordNumber = {
+        x: $('#x').val(),
+        y: $('#y').val(),
+        type: "Multiply"
+    }
+    $.ajax({
+        method: 'POST',
+        url: '/records',
+        data: recordNumber
+    })
+        .done(function (response) {
+            getRecords();
         })
         .fail(function (message) {
             console.log('Error', message);
@@ -142,17 +99,22 @@ function divideClicked(x, y) {
         })
 }
 function getRecords() {
-    $.ajax({
+    $.ajax ({
         method: 'GET',
         url: '/records'
     })
-        .done(function (response) {
-            var recordCollection = response;
-        })
-
+    .done(function (response) {
+        var resultToString = response;
+        appendToDom(resultToString);
+    })
 }
 
+function appendToDom(result) {
+    $('h3').html("Result: " + result);
+
+}    
 function clearClicked() {
-    $('#x').empty();
-    $('#y').empty();
+    $('#x').val("");
+    $('#y').val("");
+    $('h3').html("Result:");
 }
