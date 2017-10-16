@@ -24,7 +24,7 @@ function addClicked(x, y) {
         data: recordNumber
     })
     .done(function(response){
-        //var recordToCalculate = response;
+       
         getRecords();
     })
     .fail(function(message){
