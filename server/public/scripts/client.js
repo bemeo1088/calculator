@@ -27,7 +27,7 @@ function equalsButtonClicked () {
     // make ajax call to server
     $.ajax({
         type: 'POST',
-        url: '/records',
+        url: '/calculate',
         data: objectToSend
     }).done(function (response) {
         //handle response
@@ -78,7 +78,7 @@ function addClicked(x, y) {
     //console.log('Record Number', recordNumber);
     $.ajax({
         method: 'POST',
-        url: '/records',
+        url: '/calculate',
         data: recordNumber
     })
     .done(function(response){
@@ -101,7 +101,7 @@ function subtractClicked(x, y) {
 
     $.ajax({
         method: 'POST',
-        url: '/records',
+        url: '/calculate',
         data: recordNumber
     })
         .done(function (response) {
@@ -123,7 +123,7 @@ function divideClicked(x, y) {
     console.log('Record Number', recordNumber);
     $.ajax({
         method: 'POST',
-        url: '/records',
+        url: '/calculate',
         data: recordNumber
     })
         .done(function (response) {
@@ -145,7 +145,7 @@ function multiplyClicked(x, y) {
     }
     $.ajax({
         method: 'POST',
-        url: '/records',
+        url: '/calculate',
         data: recordNumber
     })
         .done(function (response) {
@@ -159,7 +159,7 @@ function multiplyClicked(x, y) {
 function getRecords() {
     $.ajax ({
         method: 'GET',
-        url: '/records'
+        url: '/calculate'
     })
     .done(function (response) {
         var resultToString = response;
