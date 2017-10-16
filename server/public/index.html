@@ -14,14 +14,36 @@
     <div class="container">
         <h1>YOUR SMART CALCULATOR</h1>
             <div class="main">
-                x: <input type="number" id="x"><br><br>
-                y: <input type="number" id="y"><br><br>
-                <button id="addBtn" value="add">Addition</button>
-                <button id="subtractBtn" value="subtract">Subtraction</button>
-                <button id="multiplyBtn" value="multiply">Multiplication</button>
-                <button id="divideBtn" value="divide">Division</button>
-                <h3>Result:</h3>
-                <button id="clearBtn">Clear</button>
+                <section id="input">
+                    <p id="currentNumber"></p>
+                    <p>
+                        <button class="numberButton" data-number='7'>7</button>
+                        <button class="numberButton" data-number='8'>8</button>
+                        <button class="numberButton" data-number='9'>9</button>
+                        <button class="numberButton" data-type='Add'>+</button>
+                    </p>
+                    <p>
+                        <button class="numberButton" data-number='4'>4</button>
+                        <button class="numberButton" data-number='5'>5</button>
+                        <button class="numberButton" data-number='6'>6</button>
+                        <button class="numberButton" data-type='Subtract'>-</button>
+                    </p>
+                    <p>
+                        <button class="numberButton" data-number='1'>1</button>
+                        <button class="numberButton" data-number='2'>2</button>
+                        <button class="numberButton" data-number='3'>3</button>
+                        <button class="numberButton" data-type='Multiply'>*</button>
+                    </p>
+                    <p>
+                        <button class="numberButton" data-number='.'>.</button>
+                        <button class="numberButton" data-number='0'>0</button>
+                        <button id="equalsButton">=</button>
+                        <button class="numberButton" data-type='Divide'>/</button>
+                    </p>
+                </section>
+                <ul id="output">
+
+                </ul>
             </div>
     </div>
 </body>

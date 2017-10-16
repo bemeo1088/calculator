@@ -18,7 +18,7 @@ app.post('/records', function(req,res){
     // console.log (recordToCalculate.y);
     switch (recordToCalculate.type) {
         case "Add":
-            result = parseInt(recordToCalculate.x) + parseInt(recordToCalculate.y);
+            result = parseInt(recordToCalculate.x) + parseInt(recordToCalculate.y); // Or use Number(recordToCalculate.x)
             console.log('add', result);           
             break;
         case "Subtract":
